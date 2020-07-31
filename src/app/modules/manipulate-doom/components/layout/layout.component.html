@@ -1,0 +1,150 @@
+<section>
+    <p class="title-section">ElementRef</p>
+    <p class="text-info">
+        You can use ElementRef to get basic information like the selector in javarscript (for example: get content, edit
+        content, id, class name, etc.)
+    </p>
+    <Button class="btn button-submit" (click)="elementRefClick()">Get result</Button>
+    <Button class="btn button-bg-blue" (click)="elementRefAddClassBlueColor()">Add class blue color</Button>
+    <Button class="btn button-bg-green" (click)="elementRefAddClassGreenColor()">Add class green color</Button>
+    <Button class="btn button-bg-yellow" (click)="elementRefAddClassYellowColor()">Add class yellow color</Button>
+    <Button class="btn button-bg-cancel" (click)="elementRefRemoveClassColor()">Remove class color</Button>
+    <br>
+    -----*****----******-----
+    <br>
+    <p #elementRef>
+        This is the content of the element
+    </p>
+</section>
+
+<section>
+    <p class="title-section">TemplateRef</p>
+    <p class="text-info">
+        - The way TemplateRef works is that it will not create a view directly, it is only a component that references its
+        content, and when needed we can create its content using the createEmbeddedView () method and inserting into
+        ViewContainerRef.
+    </p>
+    <Button class="btn button-submit" (click)="templateRefClick()">Get result</Button>
+    <br>
+    <span>
+        <ng-template #templateRef>
+            <span>
+                This is the content of the element
+            </span>
+        </ng-template>
+    </span>
+</section>
+
+
+<section>
+    <p class="title-section">ViewContainerRef</p>
+    <p class="text-info">
+        - ViewContainerRef is a container for view: EmbeddedView and Host View
+        We can insert an EmbeddedView using the .insert() function and a host view with the createComponent()
+        function.
+    </p>
+    <p class="text-info">
+        - We can call variables to receive values ​​or we can change their values ​​and are similar to the functions for
+        host view (via instance properties you can see in the code)
+    </p>
+    <p class="text-info">
+        - Note: the components will be inserted at the bottom and not lost, if you want to delete we use the clear()
+        function.
+    </p>
+    <Button class="btn button-submit" (click)="createEmbeddedView()">Create Embedded View</Button>
+    <Button class="btn button-submit" (click)="createHostView()">Create Host View</Button>
+    <br>
+    -----*****----******-----
+    <br>
+    <span>
+        <ng-container #viewContainerRef>
+
+        </ng-container>
+    </span>
+</section>
+
+
+
+<section>
+    <p class="title-section">Content Projection</p>
+    <p class="text-info">
+        - Many Components in your app using same structure and style but the content are different, in another word
+        Reusability.
+    </p>
+    <p class="text-info">
+        - If you want to use the element of project content in
+        elsewhere we will have a select attribute based on the name tag, class or attribute of that element (eg: div, p,
+        [disable = true], text-box)
+    </p>
+    -----*****----******-----
+    <br>
+
+    <app-child>
+        <h5>
+            The University of Pedagogy
+        </h5>
+        <div class="content">
+            This is the content
+        </div>
+        <div show="false" class="body">
+            This is the body part shown
+        </div>
+        <div show="true" class="body">
+            This is the body part not shown
+        </div>
+        <div class="footer">
+            This is the footer.
+        </div>
+    </app-child>
+    <p class="text-info">
+        - You can combine with ngTemplateOutlet to customize the content you desire!
+    </p>
+    <p class="text-info">
+        - You can see the same component but we can reuse them in many places and can change its content
+    </p>
+    <ng-template #defaultListInput>
+        <div class="list-input">
+            <div class="item">
+                <div class="label">
+                    Class:
+                </div>
+                <div class="input">
+                    <input placeholder="Your class.....">
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">
+                    Telephone Number:
+                </div>
+                <div class="input">
+                    <input placeholder="Your telephone Number.....">
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">
+                    Hometown:
+                </div>
+                <div class="input">
+                    <input placeholder="Your Hometown.....">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <app-child [listInputCustom]="defaultListInput">
+        <h5>
+            The University of Pedagogy
+        </h5>
+        <div class="content">
+            This is the content
+        </div>
+        <div show="false" class="body">
+            This is the body part shown
+        </div>
+        <div show="true" class="body">
+            This is the body part not shown
+        </div>
+        <div class="footer">
+            This is the footer.
+        </div>
+    </app-child>
+</section>

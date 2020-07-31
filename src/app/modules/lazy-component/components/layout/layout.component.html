@@ -1,0 +1,28 @@
+<section>
+    <p class="title-section">Create component lazyloading</p>
+    <p class="text-info">
+        - When using the layzy component, you don't need to declare it in ngModel (import, and declarations), it will
+        only load
+        right after being specified.
+    </p>
+    <p class="text-info">
+        - Many people worry that by doing so the system will have to load from many times if it is used multiple times
+        but
+        angular will save previously loaded components and will not load anymore.
+    </p>
+    <p class="text-info">
+        - You still have access to layzy components' variables and functions, and you can take advantage of them to
+        capture
+        needed events (ngOnInit, ngDestroy ...)
+    </p>
+    <p>
+        - If you apply this method to some components that are high in capacity and don't need to load in the first place,
+        you will optimize a lot of performance!
+    </p>
+    <Button class="btn button-submit"  (click)="createLazyComponent()">Create component lazyloading</Button>
+    <div class="content">
+        <ng-container #viewContainerRef>
+
+        </ng-container>
+    </div>
+</section>

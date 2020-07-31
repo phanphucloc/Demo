@@ -1,0 +1,46 @@
+<div class="form">
+    <div class="header">
+        <h3> {{title}}</h3>
+        <ng-content select="h5"></ng-content>
+    </div>
+    <div class="body">
+        <ng-container *ngTemplateOutlet="listInputCustom ? listInputCustom : defaultListInput"></ng-container>
+        <ng-content select=".body[show='true']"></ng-content>
+        <div class="list-action">
+            <div class="btn button-submit"> Submit </div>
+            <div class="btn button-cancel"> Cancel </div>
+        </div>
+    </div>
+    <div class="footer">
+        <ng-content select=".footer"></ng-content>
+    </div>
+</div>
+
+<ng-template #defaultListInput>
+    <div class="list-input">
+        <div class="item">
+            <div class="label">
+                Name:
+            </div>
+            <div class="input">
+                <input placeholder="Your name.....">
+            </div>
+        </div>
+        <div class="item">
+            <div class="label">
+                Year old:
+            </div>
+            <div class="input">
+                <input placeholder="Your year old.....">
+            </div>
+        </div>
+        <div class="item">
+            <div class="label">
+                Address:
+            </div>
+            <div class="input">
+                <input placeholder="Your address.....">
+            </div>
+        </div>
+    </div>
+</ng-template>
