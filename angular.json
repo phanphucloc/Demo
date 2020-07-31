@@ -31,11 +31,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              {
-                "heroku-postbuild": "ng build --prod"
-              }
-            ],
-            "heroku-postbuild": "ng build --prod"
+             
+            ]
           },
           "configurations": {
             "production": {
