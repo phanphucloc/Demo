@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
@@ -10,16 +9,21 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'manipulate-doom',
-    loadChildren: () => import('./modules/manipulate-doom/manipulate-doom.module').then(m => m.ManipulateDoomModule)
-  },
-  {
-    path: 'lazy-component',
-    loadChildren: () => import('./modules/lazy-component/lazy-component-routing.module').then(m => m.LazyComponentRoutingModule)
-  },
-  {
-    path: 'index',
-    loadChildren: () => import('./modules/introduce/introduce-routing.module').then(m => m.IntroduceRoutingModule)
+    path: '',
+    children:[
+      {
+        path: 'manipulate-doom',
+        loadChildren: () => import('./modules/manipulate-doom/manipulate-doom.module').then(m => m.ManipulateDoomModule)
+      },
+      {
+        path: 'lazy-component',
+        loadChildren: () => import('./modules/lazy-component/lazy-component.module').then(m => m.LazyComponentModule)
+      },
+      {
+        path: 'index',
+        loadChildren: () => import('./modules/introduce/introduce.module').then(m => m.IntroduceModule)
+      },
+    ]
   },
 ];
 
