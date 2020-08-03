@@ -21,10 +21,21 @@ export class LayoutComponent implements OnInit {
     const componentFactory = cfr.resolveComponentFactory(ChildComponent);
     const componentRef = this.viewContainerRef.createComponent(componentFactory, 0, injector);
 
-    componentRef.instance.eventDestoy.toPromise().then((res) => {
+    componentRef.instance.eventClose.toPromise().then((res) => {
 
       // Write your code here when you need to do something when this component is destroyed
+      alert('Has been closed');
+      componentRef.destroy();
 
     });
+
+    componentRef.instance.eventDestoy.toPromise().then((res) => {
+
+      // Write your code here when you need to do something when this component is closed
+      alert('Has been destroy');
+      componentRef.destroy();
+
+    });
+
   }
 }

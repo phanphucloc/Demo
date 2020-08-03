@@ -114,12 +114,23 @@ section{
         font-size: 15px;
     }
     .box{
+        position: relative;
         display: inline-block;
         width: 300px;
         min-height: 150px;
         padding: 10px;
         margin: 10px;
         box-shadow: 0 3px 4px 1px #ccc;
+
+        .icon-close{
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            color: red;
+            font-weight:bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
     }
 }
 .blue{

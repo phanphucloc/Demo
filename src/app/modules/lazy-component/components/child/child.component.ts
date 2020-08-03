@@ -8,11 +8,18 @@ import { Subject } from 'rxjs';
 })
 export class ChildComponent implements OnInit,OnDestroy {
   public eventDestoy: Subject<string>;
-  constructor() { }
+  public eventClose: Subject<string>;
+
+  constructor() {
+    this.eventDestoy = new Subject<string>();
+    this.eventClose = new Subject<string>();
+  }
 
   ngOnInit(): void {
   }
-
+  destroyComponent(): void{
+    this.eventClose.complete();
+  }
   ngOnDestroy(): void{
     this.eventDestoy.complete();
   }
