@@ -24,7 +24,7 @@ export class LayoutComponent implements OnInit {
     componentRef.instance.eventClose.toPromise().then((res) => {
 
       // Write your code here when you need to do something when this component is destroyed
-      alert('Has been closed');
+      alert('Has been closed lazy component');
       componentRef.destroy();
 
     });
@@ -32,7 +32,7 @@ export class LayoutComponent implements OnInit {
     componentRef.instance.eventDestoy.toPromise().then((res) => {
 
       // Write your code here when you need to do something when this component is closed
-      alert('Has been destroy');
+      alert('Has been destroy lazy component');
       componentRef.destroy();
 
     });
